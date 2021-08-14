@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "airbnb",
+    "next",
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  }
+}
