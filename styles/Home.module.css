@@ -1,11 +1,19 @@
+.content {
+  @apply border border-[#0070f3] container mx-auto
+}
+
+
+/*  @apply border border-[#0070f3]*/
+/* TODO: Everything below this line to be replaced/removed */
+
 .container {
-  min-height: 100vh;
+  min-height: 30vh;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 60vh;
 }
 
 .main {

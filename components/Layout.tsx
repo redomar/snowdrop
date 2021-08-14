@@ -1,11 +1,11 @@
-import { ReactNode } from 'react';
 import styles from '@/styles/Home.module.css';
+import { ReactNode } from 'react';
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className={styles.main}>
+    <div>
       New Blog
-      <article className={styles.card}>{children}</article>
+      <article>{children}</article>
     </div>
   );
 };
