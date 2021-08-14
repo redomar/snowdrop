@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import Header from '../components/home/head'
+import Footer from '../components/home/foot'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -11,22 +12,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Snowdrop
-        </h1>
-
-        <span className={styles.alt}>Coming soon</span>
-      </main>
-
-      <footer className={styles.footer}>
-        
-        <pre>
-          Snowdrop by Mohamed Omar
-          <br />
-          NextJS, Strapi, Postgres
-        </pre>
-      </footer>
+      <Header />
+      <Footer />
+      
     </div>
   )
 }
