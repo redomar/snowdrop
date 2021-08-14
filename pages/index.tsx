@@ -1,9 +1,9 @@
 import Head from 'next/head';
-import Header from '../components/home/head';
-import Footer from '../components/home/foot';
-import styles from '../styles/Home.module.css';
+import Home from '@/components/home/Home';
+import Footer from '@/components/home/Footer';
+import styles from '@/styles/Home.module.css';
 
-export default function Home() {
+const Index = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -12,8 +12,10 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Header />
+      <Home />
       <Footer />
     </div>
   );
-}
+};
+
+export default Index;
