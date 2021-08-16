@@ -1,6 +1,5 @@
 import type { AppProps } from 'next/app';
 import '../styles/index.css';
-import '@/components/MDXComponents';
 import { ThemeProvider } from 'next-themes';
 import { MDXProvider } from '@mdx-js/react';
 import MDXComponents from '@/components/MDXComponents';

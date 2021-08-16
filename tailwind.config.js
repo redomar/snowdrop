@@ -1,5 +1,5 @@
 module.exports = {
-  purge: ['./components/**/*.tsx', './pages/**/*.tsx'],
+  purge: ['./components/**/*.tsx', './pages/**/*.tsx', './layouts/**/*.tsx'],
   mode: 'jit',
   darkMode: 'class',
   theme: {
@@ -32,4 +32,8 @@ module.exports = {
       },
     },
   },
+  variants: {
+    typography: ['dark'],
+  },
+  plugins: [require('@tailwindcss/typography')],
 };
