@@ -17,7 +17,7 @@ export default function Container(props: any) {
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
 
-  const { children, ...customMeta } = props;
+  const { children, article, ...customMeta } = props;
   const name: string = 'Mohamed Omar';
 
   const meta: Meta = {
@@ -28,6 +28,8 @@ export default function Container(props: any) {
     name,
     ...customMeta,
   };
+
+  const mainArea = 'flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full';
 
   return (
     <div className='bg-white dark:bg-black'>
@@ -74,13 +76,21 @@ export default function Container(props: any) {
           <NextLink href='/'>
             <a className='p-1 text-gray-900 sm:p-4 dark:text-gray-100'>Home</a>
           </NextLink>
+          <NextLink href='/links'>
+            <a className='p-1 text-gray-900 sm:p-4 dark:text-gray-100'>Links</a>
+          </NextLink>
           <NextLink href='/about'>
             <a className='p-1 text-gray-900 sm:p-4 dark:text-gray-100'>About</a>
           </NextLink>
         </div>
       </nav>
       <main id='skip' className='flex flex-col justify-center px-8 bg-white dark:bg-black'>
-        {children}
+        {article ? (
+          <article className={mainArea}>{children}</article>
+        ) : (
+          <section className={mainArea}>{children}</section>
+        )}
+
         {/* <Footer /> */}
       </main>
     </div>
