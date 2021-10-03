@@ -79,6 +79,9 @@ export default function Container(props: any) {
           <NextLink href='/links'>
             <a className='p-1 text-gray-900 sm:p-4 dark:text-gray-100'>Links</a>
           </NextLink>
+          <NextLink href='/games/chess'>
+            <a className='p1 text-gray-900 sm:p-4 dark:text-gray-100'>Chess</a>
+          </NextLink>
           <NextLink href='/about'>
             <a className='p-1 text-gray-900 sm:p-4 dark:text-gray-100'>About</a>
           </NextLink>
