@@ -1,3 +1,5 @@
-export default function Button() {
-  return <button className='bg-blue-400 rounded-sm px-3'>Click Meh</button>;
+import { ReactNode } from 'react';
+
+export default function Button({ children }: { children: ReactNode }) {
+  return <button className='bg-black text-white rounded-sm px-3 w-20 min-w-min'>{children}</button>;
 }
