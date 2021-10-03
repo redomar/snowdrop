@@ -5,17 +5,20 @@ import { Chess as ChessStats, ChessBlitzClass } from './types';
 
 const Stat = ({ stat, gameType }: { stat: ChessBlitzClass; gameType: string }) => {
   const statDate = (date: number) =>
-    new Date(date * 1e3).toLocaleDateString('en-GB', { dateStyle: 'long' });
+    new Date(date * 1e3).toLocaleDateString('en-GB', { dateStyle: 'medium' });
 
   const StatSpan = ({ children }: { children: ReactNode }) => (
     <span className='font-bold text-blue-900 dark:text-blue-500'>{children}</span>
   );
   return (
     <div className='my-4 text-lg'>
-      My current {gameType} rating is <StatSpan>{stat.last.rating}</StatSpan> as of{' '}
+      {gameType} rating: <StatSpan>{stat.last.rating}</StatSpan> on{' '}
       <StatSpan>{statDate(stat.last.date)}</StatSpan>
       <div>
-        My highest {gameType} rating was <StatSpan>{stat.best.rating}</StatSpan>
+        Peak rating:{' '}
+        <StatSpan>
+          {stat.best.rating} on {statDate(stat.best.date)}
+        </StatSpan>
       </div>
       <div className='flex flex-row gap-2'>
         <div>
@@ -37,19 +40,21 @@ const Chess = ({ chessStats }: { chessStats: ChessStats }) => {
     <>
       <Container>
         <MDXComponents.h1>My Chess Stats</MDXComponents.h1>
-        <div className='mt-8'>
-          <MDXComponents.h2>Rapid ⏳ </MDXComponents.h2>
-          <div className='italic text-gray-500 dark:text-gray-400 tracking-wide'>
-            Games over 3 minutes but under 10 minutes.
+        <div className='mt-8 grid grid-cols-2 gap-2 m-0'>
+          <div className='rounded border border-gray-200 p-2'>
+            <MDXComponents.h2>Rapid ⏳ </MDXComponents.h2>
+            <div className='italic text-gray-500 dark:text-gray-400 tracking-wide h-12'>
+              Games over 3 minutes but under 10 minutes.
+            </div>
+            <Stat stat={chessStats.chess_rapid} gameType='Rapid' />
           </div>
-          <Stat stat={chessStats.chess_rapid} gameType='Rapid' />
-        </div>
-        <div>
-          <MDXComponents.h2>Blitz ⚡️</MDXComponents.h2>
-          <div className='italic text-gray-500 dark:text-gray-400 tracking-wide'>
-            Games 10 minutes and longer.
+          <div className='rounded border border-gray-200 p-2'>
+            <MDXComponents.h2>Blitz ⚡️</MDXComponents.h2>
+            <div className='italic text-gray-500 dark:text-gray-400 tracking-wide h-12'>
+              Games 10 minutes and longer.
+            </div>
+            <Stat stat={chessStats.chess_blitz} gameType='Blitz' />
           </div>
-          <Stat stat={chessStats.chess_blitz} gameType='Blitz' />
         </div>
       </Container>
     </>
