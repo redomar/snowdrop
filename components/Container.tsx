@@ -17,7 +17,7 @@ export default function Container(props: any) {
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
 
-  const { children, article, ...customMeta } = props;
+  const { children, article, customMeta } = props;
   const name: string = 'Mohamed Omar';
 
   const meta: Meta = {
