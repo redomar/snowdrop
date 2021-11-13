@@ -5,6 +5,7 @@ const withMDX = require('@next/mdx')({
   extension: /\.mdx$/,
 });
 module.exports = withMDX({
+  swcMinify: true,
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
