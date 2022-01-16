@@ -6,6 +6,9 @@ const withMDX = require('@next/mdx')({
 });
 module.exports = withMDX({
   swcMinify: true,
+  images: {
+    domains: ['cdn.sanity.io'],
+  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if

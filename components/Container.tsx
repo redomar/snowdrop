@@ -9,8 +9,11 @@ interface Meta {
   type: string;
   name: string;
 }
+interface ContainerProps {
+  article: boolean;
+}
 
-export default function Container(props: any) {
+const Container: React.FC<ContainerProps> = (props) => {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
 
@@ -79,6 +82,9 @@ export default function Container(props: any) {
           <NextLink href='/links'>
             <a className='p-1 text-gray-900 sm:p-4 dark:text-gray-100'>Links</a>
           </NextLink>
+          <NextLink href='/blog'>
+            <a className='p-1 text-gray-900 sm:p-4 dark:text-gray-100'>Blog</a>
+          </NextLink>
           <NextLink href='/games/chess'>
             <a className='p1 text-gray-900 sm:p-4 dark:text-gray-100'>Chess</a>
           </NextLink>
@@ -98,4 +104,6 @@ export default function Container(props: any) {
       </main>
     </div>
   );
-}
+};
+
+export default Container;
