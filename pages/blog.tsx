@@ -1,5 +1,6 @@
 import Container from '@/components/Container';
 import MDXComponents from '@/components/MDXComponents';
+import NextLink from 'next/link';
 
 type Posts = { posts: any[] | null };
 
@@ -10,8 +11,12 @@ const Blog = ({ posts }: Posts) => {
         // display title for each post
         posts?.map((post) => (
           <>
-            <MDXComponents.h2 key={post._id}>{post.title}</MDXComponents.h2>
-            <div>{ }</div>
+            <NextLink href={`/blog/${post.slug.current}`}>
+              <span className='hover:text-[#0070f3] hover:cursor-pointer'>
+                <MDXComponents.h2 key={post._id}>{post.title}</MDXComponents.h2>
+              </span>
+            </NextLink>
+            <div>{}</div>
           </>
         ))
       }
