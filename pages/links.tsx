@@ -3,7 +3,7 @@ import MDXComponents from '@/components/MDXComponents';
 import BlueTwitterLogo from '../public/twitter/blue-circle.svg';
 import Image from 'next/image';
 import { Octokit } from '@octokit/core';
-import { Endpoints } from '@octokit/types';
+import { Endpoints, OctokitResponse } from '@octokit/types';
 interface IGithubUser {
   github: Endpoints['GET /user']['response']['data'];
 }
@@ -85,17 +85,31 @@ const Links = ({ github }: IGithubUser) => {
   );
 };
 
-export async function getStaticProps() {
-  const PAT = process.env.GITHUB_PAT;
-  const octokit = new Octokit({ auth: PAT });
+const getStaticProps = async () => {
+  const PAT: string | undefined = process.env.GITHUB_PAT;
+  const octokit: Octokit = new Octokit({ auth: PAT });
 
-  const response = await octokit.request('GET /user');
-  const github = response.data;
+  const response: OctokitResponse<OctokitResponse<IGithubUser, number>, number> | null =
+    (await octokit
+      .request<OctokitResponse<IGithubUser>>({
+        method: 'GET',
+        url: '/user',
+      })
+      .catch(() => {})) as any;
 
+  if (response?.status === 200) {
+    const github: OctokitResponse<IGithubUser, number> = response?.data;
+
+    return {
+      props: {
+        github,
+      },
+    };
+  }
   return {
-    props: {
-      github,
-    },
+    notFound: true,
   };
-}
+};
+
 export default Links;
+export { getStaticProps };
