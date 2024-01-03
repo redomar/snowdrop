@@ -1,6 +1,7 @@
 import NextLink from 'next/link';
 import { useTheme } from 'next-themes';
 import { PropsWithoutRef } from 'react';
+import Link from 'next/link';
 
 interface NavigationProps {
   isMounted?: boolean;
@@ -42,21 +43,21 @@ const Navigation = ({ isMounted = true }: PropsWithoutRef<NavigationProps>): JSX
         )}
       </button>
       <div>
-        <NextLink href='/'>
-          <a className='p-1 text-gray-900 sm:p-4 dark:text-gray-100'>Home</a>
-        </NextLink>
-        <NextLink href='/links'>
-          <a className='p-1 text-gray-900 sm:p-4 dark:text-gray-100'>Links</a>
-        </NextLink>
-        <NextLink href='/blog'>
-          <a className='p-1 text-gray-900 sm:p-4 dark:text-gray-100'>Blog</a>
-        </NextLink>
-        <NextLink href='/games/chess'>
-          <a className='p1 text-gray-900 sm:p-4 dark:text-gray-100'>Chess</a>
-        </NextLink>
-        <NextLink href='/about'>
-          <a className='p-1 text-gray-900 sm:p-4 dark:text-gray-100'>About</a>
-        </NextLink>
+        
+          <Link className='p-1 text-gray-900 sm:p-4 dark:text-gray-100' href={'/'}>Home</Link>
+
+        
+          <Link className='p-1 text-gray-900 sm:p-4 dark:text-gray-100' href={'/links'}>Links</Link>
+
+        
+          <Link className='p-1 text-gray-900 sm:p-4 dark:text-gray-100' href={'/blog'}>Blog</Link>
+
+        
+          <Link className='p1 text-gray-900 sm:p-4 dark:text-gray-100' href={'/games/chess'}>Chess</Link>
+
+        
+          <Link className='p-1 text-gray-900 sm:p-4 dark:text-gray-100' href={'/about'}>About</Link>
+
       </div>
     </nav>
   );

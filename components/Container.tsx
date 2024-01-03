@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, JSX } from 'react';
 import { Headings, Meta } from './Heading';
 import Navigation from './Navigation';
 
 interface ContainerProps {
   article?: boolean;
+  children?: React.ReactNode;
 }
 
-const Container: React.FC<ContainerProps> = (props) => {
+function Container(props: ContainerProps): JSX.Element {
   const [mounted, setMounted] = useState(false);
 
   // After mounting, we have access to the theme
@@ -28,7 +29,11 @@ const Container: React.FC<ContainerProps> = (props) => {
 
   return (
     <div className='bg-white dark:bg-black'>
-      <Headings {...meta} />
+      <Headings
+        pageTitle={meta.pageTitle}
+        pageDescription={meta.pageDescription}
+        type={meta.type}
+        author={meta.author}      />
       <Navigation isMounted={mounted} />
       <main id='skip' className='flex flex-col justify-center px-8 bg-white dark:bg-black'>
         {article ? (
@@ -41,6 +46,6 @@ const Container: React.FC<ContainerProps> = (props) => {
       </main>
     </div>
   );
-};
+}
 
 export default Container;
