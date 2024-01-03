@@ -26,7 +26,7 @@ module.exports = withMDX({
       // Read the .env file
       new Dotenv({
         path: path.join(__dirname, '.env'),
-        systemvars: true,
+        // systemvars: true,
       }),
     ];
 
