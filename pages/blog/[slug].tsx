@@ -10,9 +10,9 @@ type Post = {
   body: any[];
   image: any;
   post: any;
-}
+};
 
-const Post = ({ title, body, image, post }: Post) => {
+function Post({ title, body, image, post }: Post) {
   const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
@@ -29,13 +29,13 @@ const Post = ({ title, body, image, post }: Post) => {
   console.log({ imageUrl }, { image });
 
   return (
-    <Container article={true}>
+    <Container article>
       <div>{title}</div>
-      {imageUrl && <Image src={imageUrl} width='100vw' height='100vh' />}
+      {imageUrl && <Image src={imageUrl} width='100' height='100' alt='' />}
       <BlockContent blocks={body} />
     </Container>
   );
-};
+}
 
 export const getServerSideProps: GetServerSideProps<Post> = async (pageContext) => {
   const { slug } = pageContext.query;

@@ -8,6 +8,8 @@
     "react/react-in-jsx-scope": "off",
     // 2: We do not need to use prop types with TypeScript
     "react/prop-types": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
+    "import/extensions": ["never", { "svg": "always" }]
   }
 }
