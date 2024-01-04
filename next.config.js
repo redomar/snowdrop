@@ -5,6 +5,14 @@ const withMDX = require('@next/mdx')({
   extension: /\.mdx$/,
 });
 module.exports = withMDX({
+  swcMinify: true,
+  images: {
+    remotePatterns: [
+      { hostname: 'cdn.sanity.io' },
+      { hostname: 'pbs.twimg.com' },
+      { hostname: 'avatars.githubusercontent.com' },
+    ],
+  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
@@ -22,7 +30,7 @@ module.exports = withMDX({
       // Read the .env file
       new Dotenv({
         path: path.join(__dirname, '.env'),
-        systemvars: true,
+        // systemvars: true,
       }),
     ];
 
