@@ -11,6 +11,7 @@
     "react/require-default-props": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
     "react/jsx-props-no-spreading": "off",
+    "react/jsx-pascal-case": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

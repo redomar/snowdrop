@@ -1,9 +1,11 @@
+/* eslint-disable no-param-reassign */
 require('dotenv').config();
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const withMDX = require('@next/mdx')({
   extension: /\.mdx$/,
 });
+
 module.exports = withMDX({
   swcMinify: true,
   images: {
@@ -21,9 +23,7 @@ module.exports = withMDX({
     ignoreBuildErrors: true,
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
-  webpack: config => {
-    config.plugins = config.plugins || [];
-
+  webpack: (config) => {
     config.plugins = [
       ...config.plugins,
 

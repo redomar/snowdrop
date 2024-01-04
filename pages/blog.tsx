@@ -27,7 +27,7 @@ function Blog({ posts }: Posts) {
           <React.Fragment key={post._id}>
             <NextLink href={`/blog/${post.slug.current}/`} key={post._id}>
               <span className='hover:text-[#0070f3] hover:cursor-pointer'>
-                <MDXComponents.H2 key={post._id}>{post.title}</MDXComponents.H2>
+                <MDXComponents.h2 key={post._id}>{post.title}</MDXComponents.h2>
               </span>
             </NextLink>
             <div>{}</div>

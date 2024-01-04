@@ -3,7 +3,9 @@ import imageUrlBuilder from '@sanity/image-url';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import BlockContent from '@sanity/block-content-to-react';
+import { PortableText } from '@portabletext/react';
+import MDXComponents from '@/components/MDXComponents';
+// import BlockContent from '@sanity/block-content-to-react';
 
 type PostType = {
   title: string;
@@ -37,7 +39,7 @@ function Post({ title, body, image }: PostType) {
     <Container article>
       <div>{title}</div>
       {imageUrl && <Image src={imageUrl} width='100' height='100' alt='' />}
-      <BlockContent blocks={body} />
+      <PortableText value={body} components={{ block: MDXComponents }} />
     </Container>
   );
 }

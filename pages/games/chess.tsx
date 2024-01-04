@@ -38,17 +38,17 @@ function Stat({ stat, gameType }: { stat: ChessBlitzClass; gameType: string }) {
 function Chess({ chessStats }: { chessStats: ChessStats }) {
   return (
     <Container>
-      <MDXComponents.H1>My Chess Stats</MDXComponents.H1>
+      <MDXComponents.h1>My Chess Stats</MDXComponents.h1>
       <div className='mt-8 grid grid-cols-2 gap-2 m-0'>
         <div className='rounded border border-gray-200 p-2'>
-          <MDXComponents.H2>Rapid ⏳ </MDXComponents.H2>
+          <MDXComponents.h2>Rapid ⏳ </MDXComponents.h2>
           <div className='italic text-gray-500 dark:text-gray-400 tracking-wide h-12'>
             Games over 3 minutes but under 10 minutes.
           </div>
           <Stat stat={chessStats.chess_rapid} gameType='Rapid' />
         </div>
         <div className='rounded border border-gray-200 p-2'>
-          <MDXComponents.H2>Blitz ⚡️</MDXComponents.H2>
+          <MDXComponents.h2>Blitz ⚡️</MDXComponents.h2>
           <div className='italic text-gray-500 dark:text-gray-400 tracking-wide h-12'>
             Games 10 minutes and longer.
           </div>

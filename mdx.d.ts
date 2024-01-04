@@ -1,6 +1,6 @@
-/// <reference types="@mdx-js/loader" />
+import { JSX } from 'react';
 
 declare module '*.mdx' {
-    let MDXComponent: (props: any) => JSX.Element;
-    export default MDXComponent;
+  const MDXComponent: () => JSX.Element;
+  export default MDXComponent;
 }

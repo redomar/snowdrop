@@ -1,4 +1,5 @@
 import Container from '@/components/Container';
+// @ts-ignore
 import AboutInfo from '@/components/markdown/About.mdx';
 // import styles from '@/styles/Home.module.css';
 

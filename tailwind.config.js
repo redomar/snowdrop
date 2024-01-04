@@ -1,3 +1,5 @@
+const typography = require('@tailwindcss/typography');
+
 module.exports = {
   content: ['./components/**/*.tsx', './pages/**/*.tsx', './layouts/**/*.tsx'],
   darkMode: 'class',
@@ -34,5 +36,5 @@ module.exports = {
   variants: {
     typography: ['dark'],
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [typography()],
 };

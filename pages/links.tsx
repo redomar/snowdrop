@@ -44,18 +44,13 @@ function Link({ name, src, alt, logo, user, link, followers }: ILink) {
       />
       {logo ? (
         <span className='h-10 w-10 -mt-11 relative ml-auto mr-1 md:-mt-3 md:-ml-4'>
-          <Image
-            src={logo}
-            alt={`${name}'s logo`}
-            width={40}
-            height={40}
-          />
+          <Image src={logo} alt={`${name}'s logo`} width={40} height={40} />
         </span>
       ) : (
         <span className='ml-5' />
       )}
       <span className='w-full md:mt-3'>
-        <MDXComponents.H2>{name}</MDXComponents.H2>
+        <MDXComponents.h2>{name}</MDXComponents.h2>
         <span className='text-blue-700 dark:text-blue-300 tracking-tighter'>{user}</span>
         {followers && <span className='block'>Followers: {followers}</span>}
       </span>
@@ -67,7 +62,7 @@ function Links({ github }: IGithubUser) {
   return (
     <Container>
       <div className='self-center mt-2'>
-        <MDXComponents.H1>Places you can find me online</MDXComponents.H1>
+        <MDXComponents.h1>Places you can find me online</MDXComponents.h1>
         <div className='grid grid-cols-2 gap-3 md:grid-cols-1'>
           <Link
             name='Twitter'
