@@ -1,9 +1,13 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/interactive-supports-focus */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import Container from '@/components/Container';
 import MDXComponents from '@/components/MDXComponents';
-import BlueTwitterLogo from '../public/twitter/blue-circle.svg';
 import Image from 'next/image';
 import { Octokit } from '@octokit/core';
 import { Endpoints, OctokitResponse } from '@octokit/types';
+import BlueTwitterLogo from '../public/twitter/blue-circle.svg';
+
 interface IGithubUser {
   github: Endpoints['GET /user']['response']['data'];
 }
@@ -18,50 +22,52 @@ interface ILink {
   user: string;
 }
 
-const Link = ({ name, src, alt, logo, user, link, followers }: ILink) => {
+function Link({ name, src, alt, logo, user, link, followers }: ILink) {
+  // Add href parameter
   return (
-    <div
+    <a
+      href={link}
+      role='button'
       className='relative border hover:border-black dark:hover:border-white 
       dark:hover:bg-gray-900 hover:cursor-pointer rounded flex flex-col w-full p-2
       md:flex-row md:p-3 md:pt-4'
       onClick={(e) => {
-        e.preventDefault;
+        e.preventDefault();
         window.open(link, '_blank');
       }}>
-      <img
+      <Image
         src={src}
         alt={alt}
-        className='w-full md:w-[100px] md:h-[100px] rounded '
-        width='100px'
+        className='w-full md:w-[100px] md:h-[100px] rounded'
+        width={100}
+        height={100}
       />
       {logo ? (
         <span className='h-10 w-10 -mt-11 relative ml-auto mr-1 md:-mt-3 md:-ml-4'>
           <Image
             src={logo}
-            layout='fill'
-            objectFit='fill'
             alt={`${name}'s logo`}
-            width='40px'
-            height='40px'
+            width={40}
+            height={40}
           />
         </span>
       ) : (
-        <span className='ml-5'></span>
+        <span className='ml-5' />
       )}
       <span className='w-full md:mt-3'>
-        <MDXComponents.h2>{name}</MDXComponents.h2>
+        <MDXComponents.H2>{name}</MDXComponents.H2>
         <span className='text-blue-700 dark:text-blue-300 tracking-tighter'>{user}</span>
         {followers && <span className='block'>Followers: {followers}</span>}
       </span>
-    </div>
+    </a>
   );
-};
+}
 
-const Links = ({ github }: IGithubUser) => {
+function Links({ github }: IGithubUser) {
   return (
     <Container>
       <div className='self-center mt-2'>
-        <MDXComponents.h1>Places you can find me online</MDXComponents.h1>
+        <MDXComponents.H1>Places you can find me online</MDXComponents.H1>
         <div className='grid grid-cols-2 gap-3 md:grid-cols-1'>
           <Link
             name='Twitter'
@@ -83,7 +89,7 @@ const Links = ({ github }: IGithubUser) => {
       </div>
     </Container>
   );
-};
+}
 
 const getStaticProps = async () => {
   const PAT: string | undefined = process.env.GITHUB_PAT;

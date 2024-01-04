@@ -5,14 +5,19 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import BlockContent from '@sanity/block-content-to-react';
 
-type Post = {
+type PostType = {
   title: string;
   body: any[];
   image: any;
-  post: any;
+  // Remove the unused 'post' prop declaration
+  // post?: any;
 };
 
-function Post({ title, body, image, post }: Post) {
+// Remove the existing declaration of 'Post'
+// function Post({ title, body, image }: Post) {
+
+// Replace it with the imported type declaration
+function Post({ title, body, image }: PostType) {
   const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
@@ -26,7 +31,7 @@ function Post({ title, body, image, post }: Post) {
     setImageUrl(url);
   }, [image]);
 
-  console.log({ imageUrl }, { image });
+  // console.log({ imageUrl }, { image });
 
   return (
     <Container article>
@@ -37,7 +42,7 @@ function Post({ title, body, image, post }: Post) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<Post> = async (pageContext) => {
+export const getServerSideProps: GetServerSideProps<PostType> = async (pageContext) => {
   const { slug } = pageContext.query;
 
   // No slug

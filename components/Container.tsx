@@ -33,7 +33,8 @@ function Container(props: ContainerProps): JSX.Element {
         pageTitle={meta.pageTitle}
         pageDescription={meta.pageDescription}
         type={meta.type}
-        author={meta.author}      />
+        author={meta.author}
+      />
       <Navigation isMounted={mounted} />
       <main id='skip' className='flex flex-col justify-center px-8 bg-white dark:bg-black'>
         {article ? (

@@ -2,12 +2,12 @@ import Container from '@/components/Container';
 import AboutInfo from '@/components/markdown/About.mdx';
 // import styles from '@/styles/Home.module.css';
 
-const About = () => {
+function About() {
   return (
-    <Container article={true}>
+    <Container article>
       <AboutInfo />
     </Container>
   );
-};
+}
 
 export default About;

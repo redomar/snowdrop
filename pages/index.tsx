@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Home from '@/components/home/Home';
 import Footer from '@/components/home/Footer';
 import { Headings, Meta } from '@/components/Heading';
@@ -11,7 +10,7 @@ const indexMeta: Meta = {
   author: 'Mohamed Omar',
 };
 
-const Index = () => {
+function Index() {
   return (
     <div className='flex flex-col h-screen justify-between'>
       <div className='flex flex-col h-[55vh]'>
@@ -22,6 +21,6 @@ const Index = () => {
       <Footer />
     </div>
   );
-};
+}
 
 export default Index;

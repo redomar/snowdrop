@@ -7,7 +7,11 @@ const withMDX = require('@next/mdx')({
 module.exports = withMDX({
   swcMinify: true,
   images: {
-    domains: ['cdn.sanity.io'],
+    remotePatterns: [
+      { hostname: 'cdn.sanity.io' },
+      { hostname: 'pbs.twimg.com' },
+      { hostname: 'avatars.githubusercontent.com' },
+    ],
   },
   typescript: {
     // !! WARN !!
