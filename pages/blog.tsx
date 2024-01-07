@@ -5,16 +5,16 @@ import React from 'react';
 
 type Post = {
   _createdAt: string;
-  mainImage: object;
   _id: string;
+  _rev: string;
+  _type: string;
+  _updatedAt: string;
   author: object;
   body: any[];
-  _updatedAt: string;
-  _rev: string;
-  title: string;
-  _type: string;
-  slug: { current: string; _type: string };
   categories: any[];
+  mainImage: object;
+  slug: { current: string; _type: string };
+  title: string;
 };
 type Posts = { posts: Post[] | null };
 
@@ -24,14 +24,15 @@ function Blog({ posts }: Posts) {
       {
         // display title for each post
         posts?.map((post) => (
-          <React.Fragment key={post._id}>
+          <div key={post._id} className='w-full flex mb-2 p-2'>
             <NextLink href={`/blog/${post.slug.current}/`} key={post._id}>
               <span className='hover:text-[#0070f3] hover:cursor-pointer'>
                 <MDXComponents.h2 key={post._id}>{post.title}</MDXComponents.h2>
+                <span>{post._createdAt}</span>
               </span>
             </NextLink>
             <div>{}</div>
-          </React.Fragment>
+          </div>
         ))
       }
     </Container>
